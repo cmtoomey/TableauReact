@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf dist",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js && cp index.html dist/index.html",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.production.js",
     "lint": "eslint --ext .js,.jsx .",
     "deploy": "npm run clean & npm run build && gh-pages -d dist",
     "start": "cross-env NODE_ENV=development node server.js"
