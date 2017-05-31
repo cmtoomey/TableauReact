@@ -1,0 +1,24 @@
+<Slide transition={["fade"]} bgImage={images.city} bgDarken={0.50} textColor="tertiary">
+  <Heading size={2} textColor="primary" caps>Presentation Stuff</Heading>
+  <Heading size={6} textColor="tertiary" caps>Appear on Next</Heading>
+  <List>
+    <Appear>
+      <ListItem margin="0 -200px 0" textColor="primary">
+        Important Item 1
+      </ListItem>
+    </Appear>
+    <Appear>
+      <ListItem margin="0 -200px 0" textcolor="tertiary">
+        Important Item 2
+      </ListItem>
+    </Appear>
+    <Appear>
+      <ListItem margin="0 -200px 0" textColor="quartenary">
+        Important Item 3
+      </ListItem>
+    </Appear>
+    <Appear>
+      <CodePane lang="jsx" margin="-150px 300px 0" source={require("raw-loader!../assets/list.example")}/>
+    </Appear>
+  </List>
+</Slide>;

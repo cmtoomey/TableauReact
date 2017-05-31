@@ -1,0 +1,28 @@
+// Import React
+//this is a reference to an npm package you installed
+import React from "react"; 
+//this is a reference to another component in the same directory
+import Vacation from "./Vacation.js"; 
+import Tableau from "tableau-react";
+
+// Import Spectacle Core tags
+import {
+  BlockQuote,
+  Cite,
+  Deck,
+  Heading,
+  ListItem,
+  CodePane,
+  Appear,
+  List,
+  Quote,
+  Slide,
+  Text
+} from "spectacle"; //these are all part of the Spectacle Library, 
+//but instead of taking it all, you pick what you want
+
+// Import image preloader util
+import preloader from "spectacle/lib/utils/preloader";
+
+// Import theme
+import createTheme from "spectacle/lib/themes/default";

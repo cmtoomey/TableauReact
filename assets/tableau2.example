@@ -1,0 +1,40 @@
+//This is the extension of the previous Tableau example
+class TableauTest extends React.Component {
+    //This is the first thing that happens in a React Component
+    //We are creating component state - which allows us to feed our components data    
+    constructor(props) {
+        super(props);
+        this.state  = {victoryData: {}, viz:{}, label:"12 month home value forecast"};
+    }
+
+    initTableau() {       
+        //...
+        const options = {           
+            //Full JS API -> here we get data
+            onFirstInteractive: () => {
+                const sheet = viz.getWorkbook().getActiveSheet().getWorksheets().get("Table");
+                const options = {
+                    ignoreAliases: false,
+                    ignoreSelection: false,
+                    includeAllColumns: false
+                };
+                sheet.getUnderlyingDataAsync(options).then((t) => {
+                    const tableauData = t.getData();
+                    let data = [];
+                    const pointCount = tableauData.length; 
+                    //This is formatting it into something our charts can consume
+                    for(let a = 0; a < pointCount; a++ ) {
+                        data = data.concat({
+                            x: tableauData[a][0].value,
+                            y: Math.round(tableauData[a][3].value,2)
+                        })
+                    };
+                    //here we put it into state for use later
+                    this.setState({
+                        victoryData: data
+                    });
+                })
+            }
+        };
+    }
+}

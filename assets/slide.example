@@ -1,0 +1,19 @@
+//This is the first component - Slide
+//Those things that look like HTML attributes are called props
+//Props describe the properties of the component
+<Slide transition={["zoom"]} bgColor="primary">
+//Next component describing how the Text should look    
+  <Text caps textColor="secondary">
+    Let's look at the this slide
+  </Text>
+  //Self closing component to show this code on a slide
+  <CodePane
+    lang="javascript"
+    margin="20px auto"
+    source={require("raw-loader!../assets/reactbegin.example")}
+  />
+</Slide>;
+//This is where the component closes
+
+//Notice how the components layer - that's composition
+//Also notice each component declaring how and what it will render

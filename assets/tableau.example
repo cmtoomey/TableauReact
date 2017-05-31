@@ -1,0 +1,39 @@
+import React from "react";
+import Tableau from "tableau-api";
+
+//This will show up on the left hand side of the next slide
+class TableauTest extends React.Component {
+  initTableau() {
+    //put your url here
+    const vizUrl =
+      "https://public.tableau.com/views/VacationHome/VacationHome?:embed=y&:display_count=yes";
+
+    //all your options
+    const options = {
+      hideTabs: true,
+      width: "700px",
+      height: "800px",
+      onFirstInteractive: () => {
+        console.log("it worked");
+      }
+    };
+
+    this.viz = new Tableau.Viz(this.container, vizUrl, options);
+  }
+
+  render() {
+    return <div ref={c => (this.container = c)} 
+    //this will adjust where the component actually goes
+    style={{
+          position: "absolute",
+          left: -275,
+          top: -375
+        }}/>;
+  }
+
+  componentDidMount() {
+    this.initTableau();
+  }
+}
+
+export default TableauTest;
